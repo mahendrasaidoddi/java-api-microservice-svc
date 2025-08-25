@@ -18,6 +18,12 @@ jobs:
                   java-version: '21'
                   distribution: 'temurin'
                   cache: 'maven'
+                  maven-version: '3.9.11'
+
+            - name: Verify Java version
+              run: | 
+                  java -version
+                  mvn -version
 
             - name: Build with Maven
               run: mvn -B clean package --file pom.xml
