@@ -27,3 +27,6 @@ jobs:
 
             - name: Build with Maven
               run: mvn -B clean package --file pom.xml
+
+            - name: Artifacts location
+              run: ls -R target
