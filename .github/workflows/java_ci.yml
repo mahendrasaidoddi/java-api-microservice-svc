@@ -30,3 +30,13 @@ jobs:
 
             - name: Artifacts location
               run: ls -R target
+
+            - name: SonarQube Scan
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Auto created by GitHub
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+              run: mvn sonar:sonar \
+                -Dsonar.projectKey=java_maven \
+                -Dsonar.organization=mahendra \
+                -Dsonar.host.url=http://34.229.97.14:9000/ \
+                -Dsonar.login=${{ secrets.SONAR_TOKEN }}
